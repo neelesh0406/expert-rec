@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search-block {
+  width: 700px;
+  margin-left: 40px;
+  position: relative;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.search-display {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  background-color: rgb(33, 37, 41);
+  width: 99%;
+  border-radius: 5px;
+  padding: 5px;
   color: white;
+  display: flex;
+  box-shadow: 0 0 20px black;
 }
 
-.App-link {
-  color: #61dafb;
+.suggestions {
+  width: 200px;
+}
+.suggestion-list-title {
+  color: white;
+  font-weight: bold;
+  padding: 3px 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.suggestion-list {
+  color: white;
+  list-style: none;
+  padding: 0;
+}
+
+.suggestion-list li {
+  cursor: pointer;
+  padding: 2px 5px;
+  font-weight: 300;
+  font-size: 14px;
+}
+.suggestion-list li:hover {
+  background-color: rgb(59, 66, 73);
+}
+
+.search-items-box {
+  width: 500px;
+  border-left: 1px solid white;
+  padding: 0px 3px;
+}
+.search-items {
+  width: 100%;
+  /* border-bottom: 1px solid beige; */
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+.search-items li {
+  list-style: none;
+  width: 31%;
+  margin: 3px 5px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.03em;
+  padding: 6px 0 0 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.search-items li:hover {
+  box-shadow: 0 0 10px white;
+}
+
+.product-title {
+  margin-top: 6px;
+}
+
+.text-ellipses {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.search-items li img {
+  width: 100%;
+}
+
+.price {
+  font-size: 14px !important;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 20px;
+  color: #000;
+}
+
+.price-after-discount {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  color: #1d6bb8;
+}
+
+.price-before-discount {
+  font-size: 12px;
+  margin-left: 8px;
+  color: #999595;
+  text-decoration: line-through;
+}
+
+.view-all-btn {
+  display: block;
+  margin: 10px auto;
+  background: white;
+  border: none;
+  cursor: pointer;
+  padding: 2px 20px;
+  border-radius: 5px;
+  outline: none;
+  font-family: sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
