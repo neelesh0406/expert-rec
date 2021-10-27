@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Item from './Item';
 import TopSearch from './TopSearch';
@@ -11,6 +11,16 @@ export default function App() {
   const [topSearch, setTopSearch] = useState([]);
   const [topCollections, setTopCollections] = useState([]);
 
+  useEffect(() => {
+    //To prepopulate top collections categories
+    const url = `https://searchv7.expertrec.com/v6/search/eb17a931b1ab4950928cabbf42527715/?user=&q=chairs&size=6&suggestions=1&maxSuggestions=6`;
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setTopCollections(data.facets.collectionname);
+      });
+  }, [])
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -35,7 +45,7 @@ export default function App() {
       .then((data) => {
         setList(data.results);
         setTopSearch(data.suggestions);
-        data.facets.length > 0 && setTopCollections(data.facets.collectionname);
+        // data.facets.length > 0 && setTopCollections(data.facets.collectionname);
         console.log(data);
       });
   }
